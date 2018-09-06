@@ -8,11 +8,11 @@ MAINTAINER dbaskette@pivotal.io
 COPY * /tmp/
 RUN echo root:pivotal | chpasswd \
         && yum install -y unzip which tar more util-linux-ng passwd openssh-clients openssh-server ed m4; yum clean all \
-        && unzip /tmp/greenplum-db-4.3.7.1-build-1-RHEL5-x86_64.zip -d /tmp/ \
-        && rm /tmp/greenplum-db-4.3.7.1-build-1-RHEL5-x86_64.zip \
-        && sed -i s/"more << EOF"/"cat << EOF"/g /tmp/greenplum-db-4.3.7.1-build-1-RHEL5-x86_64.bin \
-        && echo -e "yes\n\nyes\nyes\n" | /tmp/greenplum-db-4.3.7.1-build-1-RHEL5-x86_64.bin \
-        && rm /tmp/greenplum-db-4.3.7.1-build-1-RHEL5-x86_64.bin \
+        && unzip /tmp/greenplum-db-4.3.10.0-build-1-rhel5-x86_64.zip -d /tmp/ \
+        && rm /tmp/greenplum-db-4.3.10.0-build-1-rhel5-x86_64.zip \
+        && sed -i s/"more << EOF"/"cat << EOF"/g /tmp/greenplum-db-4.3.10.0-build-1-rhel5-x86_64.bin \
+        && echo -e "yes\n\nyes\nyes\n" | /tmp/greenplum-db-4.3.10.0-build-1-rhel5-x86_64.bin \
+        && rm /tmp/greenplum-db-4.3.10.0-build-1-rhel5-x86_64.bin \
         && cat /tmp/sysctl.conf.add >> /etc/sysctl.conf \
         && cat /tmp/limits.conf.add >> /etc/security/limits.conf \
         && rm -f /tmp/*.add \
